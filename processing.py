@@ -8,6 +8,7 @@ lowest_score = 20
 sys.stderr = sys.stdout
 
 users_data = do_smth_with_that_file('Users.xml')
+posts_data = do_smth_with_that_file('Posts.xml')
 comments_data = do_smth_with_that_file('Comments.xml')
 
 filtered_users = filter_data(users_data, 'Id',
@@ -18,17 +19,26 @@ filtered_users = filter_data(users_data, 'Id',
                                  lambda age: lowest_age <= int(age) <= highest_age
                              ]
                              )
+filtered_posts = filter_data(posts_data, 'Id',
+                             [
+                                 'Score'
+                             ],
+                             [
+                                 lambda score: lowest_score < int(score)
+                             ]
+                             )
 filtered_comments = filter_data(comments_data, '__index',
                                 [
-                                    'Score',
+                                    'PostId',
                                     'UserId'
                                 ],
                                 [
-                                    lambda score: lowest_score < int(score),
+                                    lambda post_id: post_id in filtered_posts,
                                     lambda user_id: user_id in filtered_users
                                 ]
                                 )
 
 users_id_to_index = dict()
-for elem in users_data:
-    users_id_to_index[elem['Id']] = elem['__index']
+#for elem in users_data:
+#    users_id_to_index[elem['Id']] = elem['__index']
+print(len(filtered_comments))
