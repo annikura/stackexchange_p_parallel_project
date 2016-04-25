@@ -22,7 +22,7 @@ def do_smth_with_that_file(filename,
                            fieldname_first_sign=' ',
                            fieldname_last_sign='=',
                            encoding_name='utf-8'):
-    data_structure = [dict()]
+    data_structure = []
     file = open(filename, 'r', encoding=encoding_name)
     filecontent = file.readlines()
     file.close()
@@ -34,7 +34,7 @@ def do_smth_with_that_file(filename,
             continue
         data_structure.append(dict())
         length = len(data_structure) - 1
-        data_structure[length - 1]['__index'] = length - 1
+        data_structure[length]['__index'] = length
         reading_pointer = 0
         while reading_pointer < len(line):
             fieldname, err, reading_pointer = get_nxt_word(line, reading_pointer,
@@ -47,5 +47,5 @@ def do_smth_with_that_file(filename,
                                                          content_last_sign)
             if err:
                 break
-            data_structure[length - 1][fieldname] = content
+            data_structure[length][fieldname] = content
     return data_structure

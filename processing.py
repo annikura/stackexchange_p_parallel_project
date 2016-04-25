@@ -39,6 +39,6 @@ filtered_comments = filter_data(comments_data, '__index',
                                 )
 
 users_id_to_index = dict()
-#for elem in users_data:
-#    users_id_to_index[elem['Id']] = elem['__index']
+for elem in users_data:
+    users_id_to_index[elem['Id']] = elem['__index']
 print(len(filtered_comments))
