@@ -66,10 +66,10 @@ for index in filtered_comments:
         comments_counter[id_user] = 0
         users_to_output.append(id_user)
     comments_counter[id_user] += 1
-users_to_output.sort(key=lambda i: comments_counter[i], reverse=True) # sorting from max number of comments to min
+users_to_output.sort(key=lambda i: comments_counter[i], reverse=True)  # sorting from max number of comments to min
 
-output(len(users_to_output), # a maximum valid number of rows in the table
-                             # (if more, lambdas will go out of the list range)
+output(len(users_to_output),  # a maximum valid number of rows in the table
+                              # (if more, lambdas will go out of the list range)
        [        # a list of the column titles of the table
            '#',
            "Id",

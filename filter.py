@@ -16,7 +16,7 @@ def filtered_data(data, field_to_return, filter_fields, filters):
         return {}
 
     for i in range(len(data)):
-        filter_matching = field_to_return in data[i] # if we have no such a field, I have nothing to return
+        filter_matching = field_to_return in data[i]  # if we have no such a field, I have nothing to return
 
         for j in range(len(filters)):  # filtering
             if filter_fields[j] not in data[i] or \

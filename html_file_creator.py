@@ -60,7 +60,7 @@ def insert_table(doc, rows, cols, titles, content, align="center",
         doc.append("<caption><h1>" + caption + "</h1></caption>")
     insert_row(doc, cols, [elem for elem in titles])  # inserting titles row
     for i in range(rows):
-        insert_row(doc, cols, [elem(i) for elem in content]) # inserting content rows
+        insert_row(doc, cols, [elem(i) for elem in content])  # inserting content rows
     doc.append("</table>")
 
 
