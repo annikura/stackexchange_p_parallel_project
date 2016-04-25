@@ -1,10 +1,7 @@
-import sys
-
-
-def filter_data(data, field_to_return, filter_fields, filters):
+def filtered_data(data, field_to_return, filter_fields, filters):
     filtered = set()
     if len(filter_fields) != len(filters):
-        sys.stderr.wrire('Filter error, lengths of the arrays are not equal')
+        print('Filter error, lengths of the arrays are not equal')
         return {}
     for i in range(len(data)):
         filter_matching = field_to_return in data[i]
