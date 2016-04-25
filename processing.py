@@ -1,3 +1,7 @@
+# A file which gets and parses the data from the file, filters it and then outputs into the result.html
+# Uses the functions from the other files
+
+
 import variables
 from file_parser import file_content
 from filter import filtered_data
@@ -44,11 +48,11 @@ comments_counter = dict()
 users_to_output = []
 
 for index in filtered_comments:
-    id = users_id_to_index[comments_data[index]["UserId"]]
-    if comments_counter.get(id) is None:
-        comments_counter[id] = 0
-        users_to_output.append(id)
-    comments_counter[id] += 1
+    id_user = users_id_to_index[comments_data[index]["UserId"]]
+    if comments_counter.get(id_user) is None:
+        comments_counter[id_user] = 0
+        users_to_output.append(id_user)
+    comments_counter[id_user] += 1
 users_to_output.sort(key=lambda i: comments_counter[i], reverse=True)
 
 output(len(users_to_output),

@@ -1,3 +1,5 @@
+# A file which contains all the functions to create an html result file
+
 import variables
 
 
@@ -39,8 +41,8 @@ def insert_row(doc, cnt, content):
     doc.append("</tr>")
 
 
-def insert_table(doc, rows, cols, titles, content, align = "center",
-                 border = "1", caption=""):
+def insert_table(doc, rows, cols, titles, content, align="center",
+                 border="1", caption=""):
     """
     :param doc: list(); a list to write in
     :param rows: int; number of rows in the table
@@ -82,7 +84,7 @@ def output(max_length, column_titles, column_content):
     add_head(filecontent, 'Result table', "style.css")
     filecontent.append("<body>")
 
-    filecontent.append("<p>" + variables.text + "</p>")
+    filecontent.append('<p align="center" >' + variables.text + "</p>")
     insert_table(filecontent, num_of_row, num_of_col, column_titles, column_content,
                  caption="Result table")
     filecontent.append("<body>")

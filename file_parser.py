@@ -1,3 +1,6 @@
+# A file contains all the functions required to parse the xml file
+
+
 def nxt_word(line, cur_position, first_word_sign, last_word_sign):
     """
     :param line: string; a string which contains the next word
@@ -10,8 +13,7 @@ def nxt_word(line, cur_position, first_word_sign, last_word_sign):
     last_sign_position = line.find(last_word_sign, first_sign_position + 1)
     if first_sign_position == -1 or last_sign_position == -1:
         return '', 1, 0
-    return line[first_sign_position + 1: last_sign_position], 0, \
-           last_sign_position + 1
+    return line[first_sign_position + 1: last_sign_position], 0, last_sign_position + 1
 
 
 def tags_off(line):

@@ -1,3 +1,6 @@
+# A function to filter the lists of data according to the rules written in lambdas
+
+
 def filtered_data(data, field_to_return, filter_fields, filters):
     """
     :param data: list(dict()); data to filter
