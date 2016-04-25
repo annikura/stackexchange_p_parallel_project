@@ -55,12 +55,12 @@ def insert_table(doc, rows, cols, titles, content, align="center",
     :return: void
         Adds a table to a doc list from the new line.
     """
-    doc.append("<table" + ' align="' + align + '" border="' + border + '" >')
+    doc.append("<table" + ' align="' + align + '" border="' + border + '" >')  # opening table tag with attributes
     if caption != "":
-        doc.append("<caption><h2>" + caption + "</h2></caption>")
-    insert_row(doc, cols, [elem for elem in titles])
+        doc.append("<caption><h1>" + caption + "</h1></caption>")
+    insert_row(doc, cols, [elem for elem in titles])  # inserting titles row
     for i in range(rows):
-        insert_row(doc, cols, [elem(i) for elem in content])
+        insert_row(doc, cols, [elem(i) for elem in content]) # inserting content rows
     doc.append("</table>")
 
 
@@ -73,20 +73,23 @@ def output(max_length, column_titles, column_content):
         Creates an html file which contains a description text and a results table
     """
     file = open("results.html", 'w')
+
     filecontent = []
     if len(column_titles) != len(column_content):
-        print("There are different counts of titles and contents")
+        print("The numbers of titles and contents are not equal")
         return
     num_of_col = len(column_titles)
     num_of_row = min(max_length, variables.rows_to_show)
 
+    # filling the html file
     filecontent.append("<html>")
     add_head(filecontent, 'Result table', "style.css")
     filecontent.append("<body>")
-
-    filecontent.append('<p align="center" >' + variables.text + "</p>")
+    filecontent.append('<h2><p align="center" >' + variables.text + "</p></h2>")
     insert_table(filecontent, num_of_row, num_of_col, column_titles, column_content,
                  caption="Result table")
     filecontent.append("<body>")
     filecontent.append("</html>")
+
     file.writelines([s + '\n' for s in filecontent])
+    file.close()
