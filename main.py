@@ -23,7 +23,7 @@ filtered_users = filtered_data(users_data, "Id",
                                    "Age"
                                ],
                                [                # a list of lambdas filtering the field contents
-                                   lambda age: variables.lowest_age <= int(age) <= variables.highest_age
+                                   lambda age: variables.min_age <= int(age) <= variables.max_age
                                ]
                                )
 filtered_posts = filtered_data(posts_data, "Id",
@@ -31,7 +31,7 @@ filtered_posts = filtered_data(posts_data, "Id",
                                    "Score"
                                ],
                                [                # a list of lambdas filtering the field contents
-                                   lambda score: variables.lowest_score < int(score)
+                                   lambda score: variables.min_score < int(score)
                                ]
                                )
 filtered_comments = filtered_data(comments_data, "__index",
@@ -45,8 +45,8 @@ filtered_comments = filtered_data(comments_data, "__index",
                                   ]
                                   )
 
-# as far as some Ids are absent, __indexes are not equal to Ids
-# So let's have a dict() (Id -> __index) to have a fast access to the user if we know his Id
+# as far as some 'Id's are absent, '__index'es are not equal to 'Id's
+# So let's have a dict() {Id : __index} to have a fast access to the user if we know his Id
 
 users_id_to_index = dict()
 
