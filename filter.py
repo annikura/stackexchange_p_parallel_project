@@ -14,7 +14,7 @@ def filtered_data(data, field_to_return, filter_fields, filters):
     if len(filter_fields) != len(filters):
         print('Filter error, lengths of the arrays are not equal')
         return {}
-    
+
     for i in range(len(data)):
         filter_matching = field_to_return in data[i] # if we have no such a field, I have nothing to return
 

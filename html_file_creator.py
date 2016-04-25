@@ -85,7 +85,7 @@ def output(max_length, column_titles, column_content):
     filecontent.append("<html>")
     add_head(filecontent, 'Result table', "style.css")
     filecontent.append("<body>")
-    filecontent.append('<h2><p align="center" >' + variables.text + "</p></h2>")
+    filecontent.append('<h4><p align="center" >' + variables.text + "</p></h4>")
     insert_table(filecontent, num_of_row, num_of_col, column_titles, column_content,
                  caption="Result table")
     filecontent.append("<body>")
