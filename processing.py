@@ -13,8 +13,7 @@ filtered_users = filtered_data(users_data, 'Id',
                                    'Age'
                                ],
                                [
-                                   lambda age: variables.lowest_age <= int(age) and
-                                               int(age) <= variables.highest_age
+                                   lambda age: variables.lowest_age <= int(age) <= variables.highest_age
                                ]
                                )
 filtered_posts = filtered_data(posts_data, 'Id',
@@ -63,7 +62,7 @@ output(
     [
         lambda i: i + 1,
         lambda i: users_data[users_to_output[i]]['Id'],
-        lambda i: link_maker('http://electronics.stackexchange.com/users/' +
+        lambda i: link_maker(variables.url + 'users/' +
                              users_data[users_to_output[i]]['Id'],
                              users_data[users_to_output[i]]['DisplayName']),
         lambda i: comments_counter[users_to_output[i]]
