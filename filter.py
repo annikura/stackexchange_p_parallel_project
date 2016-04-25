@@ -1,4 +1,11 @@
 def filtered_data(data, field_to_return, filter_fields, filters):
+    """
+    :param data: list(dict()); data to filter
+    :param field_to_return: string; a field which value will be returned if the element passes the filter
+    :param filter_fields: list(); a list of fields to be filtered
+    :param filters: list(lambda); a list of lambdas to filter the fields
+    :return: set(); a set of values from the field 'field to return' of elements which were filtered successfully
+    """
     filtered = set()
     if len(filter_fields) != len(filters):
         print('Filter error, lengths of the arrays are not equal')
